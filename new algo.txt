@@ -1,0 +1,68 @@
+// Here need to categorize the vehicles. 
+
+var cars = ["van", "car", "cab", "sport utility", "four-wheel drive", "body (of vehicle)", "bumper (of vehicle)"]
+var trucks = ["bus", "truck", "pantechnicon"]
+var tractors = ["tractor", "crane", "harvester", "seeder"]
+if (msg.result.error) {
+    msg.category = msg.result.error
+    return msg
+}
+var imageClass = msg.result.images[0].classifiers[0].classes[0].class
+var imageConfidence = msg.result.images[0].classifiers[0].classes[0].score
+var hierarchy = msg.result.images[0].classifiers[0].classes[0].type_hierarchy
+
+customClass = "unknown"
+
+//node.warn('Entering cars')
+for (var c in cars) {
+  car = cars[c]
+  if (hierarchy) {
+      if (hierarchy.indexOf(car) != -1) {
+        customClass = "car"
+        msg.category = customClass
+        return msg
+      }
+  }
+  if (imageClass.indexOf(car) != -1) {
+    customClass = "car"
+    msg.category = customClass
+    return msg
+  }
+}
+
+//node.warn('Entering tractors')
+for (var c in tractors) {
+  tractor = tractors[c]
+  if (hierarchy) {
+      if (hierarchy.indexOf(tractor) != -1) {
+        customClass = "tractor"
+        msg.category = customClass
+        return msg
+      }
+  }
+  if (imageClass.indexOf(tractor) != -1) {
+    customClass = "tractor"
+    msg.category = customClass
+    return msg
+  }
+}
+
+//node.warn('Entering trucks')
+for (var c in trucks) {
+  truck = trucks[c]
+  if (hierarchy) {
+      if (hierarchy.indexOf(truck) != -1) {
+        customClass = "truck"
+        msg.category = customClass
+        return msg
+      }
+  }
+  if (imageClass.indexOf(truck) != -1) {
+    customClass = "truck"
+    msg.category = customClass
+    return msg
+  }
+}
+
+msg.category = customClass
+return msg;

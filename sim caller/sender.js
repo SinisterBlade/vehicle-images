@@ -14,7 +14,6 @@ request.post(
       "active": true,
       "Display": "C16F195200",
       "name": "Car",
-      //"image": "http://f1.pepst.com/c/56FEEA/139008/ssc3/home/001/tunig.car.hit/url__2_.jpg_480_480_0_64000_0_1_0.jpg"
       "image": data.toString('base64')
     }
   },

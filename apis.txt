@@ -1,4 +1,4 @@
-curl -X POST -F "car_positive_examples=@car.zip" -F "truck_positive_examples=@truck.zip" -F "tractor_positive_examples=@tractor.zip" -F "name=vehicles" "https://gateway-a.watsonplatform.net/visual-recognition/api/v3/classifiers?api_key=dedba94e9974991da7e2459f9c76d46d786851b6&version=2016-05-20"
+curl -X POST -F "car_positive_examples=@car.zip" -F "truck_positive_examples=@truck.zip" -F "tractor_positive_examples=@tractor.zip" -F "name=vehicles" "https://gateway-a.watsonplatform.net/visual-recognition/api/v3/classifiers?api_key=<MY_KEY>&version=2016-05-20"
 
 {
     "classifier_id": "vehicles_1493294154",
@@ -12,3 +12,5 @@ curl -X POST -F "car_positive_examples=@car.zip" -F "truck_positive_examples=@tr
         {"class": "car"}
     ]
 }
+
+curl -X POST -F "images_file=@b.jpg" -F "parameters=@params.json" "https://gateway-a.watsonplatform.net/visual-recognition/api/v3/classify?api_key=<MY_KEY>&version=2016-05-20"

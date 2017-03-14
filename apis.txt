@@ -1,0 +1,14 @@
+curl -X POST -F "car_positive_examples=@car.zip" -F "truck_positive_examples=@truck.zip" -F "tractor_positive_examples=@tractor.zip" -F "name=vehicles" "https://gateway-a.watsonplatform.net/visual-recognition/api/v3/classifiers?api_key=dedba94e9974991da7e2459f9c76d46d786851b6&version=2016-05-20"
+
+{
+    "classifier_id": "vehicles_1493294154",
+    "name": "vehicles",
+    "owner": "18fe6728-9435-4fb3-bb48-389021b61df5",
+    "status": "training",
+    "created": "2017-03-14T01:11:59.168Z",
+    "classes": [
+        {"class": "truck"},
+        {"class": "tractor"},
+        {"class": "car"}
+    ]
+}
